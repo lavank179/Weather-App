@@ -1,4 +1,4 @@
-$('a[href*="#"]').on('click', function (e) {
+  $('#menu-center a[href*="#"]').on('click', function (e) {
     e.preventDefault()
   
     $('html, body').animate(
@@ -8,4 +8,4 @@ $('a[href*="#"]').on('click', function (e) {
       800,
       'linear'
     )
-  })
+  });

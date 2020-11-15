@@ -79,17 +79,19 @@
     height: 4rem;
     border-radius: 15px;
   }
-  
+
   .gr1{
     display: grid;
-    grid-template-columns: repeat(4,1fr);
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    justify-content: space-evenly;
     grid-auto-rows: auto auto;
-    grid-gap: 10px;
+    grid-gap: 30px;
   }
   
   .container1{
     display: grid;
-    grid-template-columns: repeat(4,1fr);
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    justify-content: space-evenly;
     grid-auto-rows: auto auto;
     grid-gap: 20px;
   }
@@ -164,4 +166,12 @@
   #go-top img{
     width: 55px;
     height: 55px;
+  }
+
+  #about .card{
+    border: ridge 3px #a31aff;
+  }
+
+  #resume .k1{
+    text-align: left;
   }

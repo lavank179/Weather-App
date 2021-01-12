@@ -15,14 +15,18 @@
       var name = $("#contactName").val();
       var mail = $("#contactEmail").val();
       var messages = $("#contactMessage").val();
+
       $.ajax({
-              method: "POST",
-              url: "http://lavankumarch.heliohost.org/portContact.php",
-              data: { name, mail, messages }
-          })
-          .done(function(msg) {
-              alert("Data Saved: " + msg);
-          });
+          url: "http://lavankumarch.heliohost.org/portContact.php",
+          type: "POST",
+          async: true,
+          data: { contactName: name, contactEmail: mail, contactMessage: messages },
+          success: function(response) {
+              var res = JSON.parse(response);
+              console.log(res[0].message);
+              alert(res);
+          }
+      });
   }
 
   function download_resume() {

@@ -1,223 +1,261 @@
-    body {
-        padding-top: 25px;
-        font-size: 1rem;
-        font-family: "Roboto";
-    }
-    
-    title {
-        font-family: "Sofia";
-    }
-    
-    #home {
-        font-size: 1.2rem;
-    }
-    
-    .lead {
-        font-size: 1.2rem;
-    }
-    
-    .navbar {
-        font-size: 92%;
-    }
-    
-    #h1 {
-        background-image: url("./images/jumbo-back.jpg");
-        background-repeat: no-repeat;
-    }
-    
-    .jumbotron {
-        background: none;
-    }
-    
-    .jumbotron h1 {
-        color: #534f96;
-        font-family: "Aladin";
-        font-size: 90px;
-    }
-    
-    .jumbotron .lead {
-        color: #1c67ca;
-        font-weight: bolder;
-    }
-    
-    .jumbotron a {
-        width: 70px;
-    }
-    
-    #about {
-        padding-top: 75px;
-        padding-bottom: 180px;
-        background-image: url("./images/about-back.png");
-        background-repeat: no-repeat;
-    }
-    
-    #about .bio {
-        text-align: center;
-        font-size: 1.2rem;
-    }
-    
-    #portfolio {
-        padding-top: 60px;
-        padding-bottom: 60px;
-    }
-    
-    #contact {
-        padding-top: 60px;
-        padding-bottom: 60px;
-    }
-    
-    #resume {
-        padding-top: 75px;
-        padding-bottom: 180px;
-        background-image: url("https://wallpapercave.com/wp/wp6474741.jpg");
-        background-repeat: no-repeat;
-        color: whitesmoke;
-    }
-    
-    #resume .card {
-        background: none;
-        border: none;
-    }
-    
-    #resume .card-title {
-        font-family: "Boogaloo";
-    }
-    
-    #resume .card ul {
-        text-align: left;
-        display: inline-block;
-    }
-    
-    footer {
-        background-color: #9999ff;
-    }
-    
-    .container {
-        text-align: center;
-    }
-    
-    .container-fluid {
-        text-align: center;
-    }
-    
-    .profile-pic {
-        width: 300px;
-        height: 300px;
-        border-radius: 20%;
-    }
-    
-    .profile-pic:hover {
-        border-radius: 0%;
-    }
-    
-    .navbar {
-        text-align: center;
-    }
-    
-    .navbar-brand img {
-        width: 35px;
-        height: 35px;
-    }
-    
-    .n1 {
-        background-color: #9999ff;
-    }
-    
-    .skill-logo img {
-        width: 5rem;
-        height: 4rem;
-        border-radius: 4px;
-        border: whitesmoke ridge 2px;
-    }
-    
-    .gr1 {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-        row-gap: 30px;
-        column-gap: -20%;
-    }
-    
-    .container1 {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-        justify-content: space-evenly;
-        grid-auto-rows: auto auto;
-        grid-gap: 20px;
-    }
-    
-    .gallery-item {
-        width: 100%;
-        height: 100%;
-        position: relative;
-    }
-    
-    .gallery-item .image {
-        width: 100%;
-        height: 100%;
-        overflow: hidden;
-    }
-    
-    .gallery-item .image img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        object-position: 50% 50%;
-        cursor: pointer;
-        transition: .5s ease-in-out;
-    }
-    
-    .gallery-item:hover .image img {
-        transform: scale(1.5);
-    }
-    
-    .gallery-item .text {
-        opacity: 0;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        color: red;
-        font-size: 25px;
-        pointer-events: none;
-        z-index: 4;
-        transition: .3s ease-in-out;
-        -webkit-backdrop-filter: blur(5px) saturate(1.8);
-        backdrop-filter: blur(5px) saturate(1.8);
-    }
-    
-    .gallery-item:hover .text {
-        opacity: 1;
-        animation: move-down .3s linear;
-        padding: 1em;
-        width: 100%;
-    }
-    
-    @keyframes move-down {
-        0% {
-            top: 10%;
+        body {
+            padding-top: 25px;
+            font-size: 1rem;
+            font-family: "Roboto";
         }
-        50% {
-            top: 35%;
+        
+        title {
+            font-family: "Sofia";
         }
-        100% {
+        
+        #home {
+            font-size: 1.2rem;
+        }
+        
+        li .active1 {
+            background-color: black;
+            border-radius: 3px;
+        }
+        
+        .active1 span {
+            color: whitesmoke;
+        }
+        
+        .lead {
+            font-size: 1.2rem;
+        }
+        
+        .navbar {
+            font-size: 92%;
+        }
+        
+        #h1 {
+            background-image: url("./images/jumbo-back.jpg");
+            background-repeat: no-repeat;
+        }
+        
+        .jumbotron {
+            background: none;
+        }
+        
+        .jumbotron h1 {
+            color: #534f96;
+            font-family: "Aladin";
+            font-size: 90px;
+        }
+        
+        .jumbotron .lead {
+            color: #1c67ca;
+            font-weight: bolder;
+        }
+        
+        .jumbotron a {
+            width: 70px;
+        }
+        
+        #about {
+            padding-top: 75px;
+            padding-bottom: 180px;
+            background-image: url("./images/about-back.png");
+            background-repeat: no-repeat;
+        }
+        
+        #about .bio {
+            text-align: center;
+            font-size: 1.2rem;
+        }
+        
+        #about .card {
+            border: none;
+            background: none;
+        }
+        
+        #portfolio {
+            padding-top: 60px;
+            padding-bottom: 60px;
+        }
+        
+        #contact {
+            padding-top: 60px;
+            padding-bottom: 60px;
+        }
+        
+        #resume {
+            padding-top: 75px;
+            padding-bottom: 180px;
+            background-image: url("https://wallpapercave.com/wp/wp6474741.jpg");
+            background-repeat: no-repeat;
+            color: whitesmoke;
+        }
+        
+        #resume .card {
+            background: none;
+            border: none;
+        }
+        
+        #resume .card-title {
+            font-family: "Boogaloo";
+        }
+        
+        #resume .card ul {
+            text-align: left;
+            display: inline-block;
+        }
+        
+        #contact h1,
+        h2 {
+            font-family: "Audiowide";
+        }
+        
+        #contact .cform h1 {
+            text-align: center;
+            display: inline;
+        }
+        
+        #contact .cform img {
+            width: 43.5px;
+            display: inline;
+        }
+        
+        #contact .cform.card {
+            border: 2px #9999FF ridge;
+        }
+        
+        #contact .reachme {
+            border: 2px #9999FF ridge;
+            text-align: center;
+        }
+        
+        #contact .reachme h2 {
+            display: inline;
+        }
+        
+        #contact .reachme img {
+            width: 40px;
+            display: inline;
+        }
+        
+        footer {
+            background-color: #9999ff;
+        }
+        
+        .container {
+            text-align: center;
+        }
+        
+        .container-fluid {
+            text-align: center;
+        }
+        
+        .profile-pic {
+            width: 300px;
+            height: 300px;
+            border-radius: 20%;
+        }
+        
+        .profile-pic:hover {
+            border-radius: 0%;
+        }
+        
+        .navbar {
+            text-align: center;
+        }
+        
+        .navbar-brand img {
+            width: 35px;
+            height: 35px;
+        }
+        
+        .n1 {
+            background-color: #9999ff;
+        }
+        
+        .skill-logo img {
+            width: 5rem;
+            height: 4rem;
+            border-radius: 4px;
+            border: whitesmoke ridge 2px;
+        }
+        
+        .gr1 {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            row-gap: 30px;
+            column-gap: -20%;
+        }
+        
+        .container1 {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            justify-content: space-evenly;
+            grid-auto-rows: auto auto;
+            grid-gap: 20px;
+        }
+        
+        .gallery-item {
+            width: 100%;
+            height: 100%;
+            position: relative;
+        }
+        
+        .gallery-item .image {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+        
+        .gallery-item .image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: 50% 50%;
+            cursor: pointer;
+            transition: .5s ease-in-out;
+        }
+        
+        .gallery-item:hover .image img {
+            transform: scale(1.5);
+        }
+        
+        .gallery-item .text {
+            opacity: 0;
+            position: absolute;
             top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: red;
+            font-size: 25px;
+            pointer-events: none;
+            z-index: 4;
+            transition: .3s ease-in-out;
+            -webkit-backdrop-filter: blur(5px) saturate(1.8);
+            backdrop-filter: blur(5px) saturate(1.8);
         }
-    }
-    
-    .display-3 {
-        padding-top: 90px;
-    }
-    
-    label {
-        text-align: right;
-    }
-    
-    #go-top img {
-        width: 55px;
-        height: 55px;
-    }
-    
-    #about .card {
-        border: none;
-        background: none;
-    }
+        
+        .gallery-item:hover .text {
+            opacity: 1;
+            animation: move-down .3s linear;
+            padding: 1em;
+            width: 100%;
+        }
+        
+        @keyframes move-down {
+            0% {
+                top: 10%;
+            }
+            50% {
+                top: 35%;
+            }
+            100% {
+                top: 50%;
+            }
+        }
+        
+        .display-3 {
+            padding-top: 90px;
+        }
+        
+        #go-top img {
+            width: 55px;
+            height: 55px;
+        }

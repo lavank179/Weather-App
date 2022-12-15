@@ -41,12 +41,19 @@ function getsearch(l1){
     getWeather1(l1);
 }
 
+function enableLoader(value) {
+    if(value) {
+        document.querySelector("#g1").style.display = "none";
+        document.querySelector("#g2").style.display = "block";
+    } else {
+        document.querySelector("#g1").style.display = "block";
+        document.querySelector("#g2").style.display = "none";
+    }
+}
 
-
-
-function getWeather1(searchtext){
-    let api = `https://api.weatherbit.io/v2.0/current?city=${searchtext}&key=${key}`;
-    
+async function getWeather1(searchtext){
+    let api = await `https://api.weatherbit.io/v2.0/current?city=${searchtext}&key=${key}`;
+    enableLoader(true);
     fetch(api)
         .then(function(response){
             let data = response.json();
@@ -66,6 +73,10 @@ function getWeather1(searchtext){
         })
         .then(function(){
             displayWeather();
+        })
+        .catch((e) => {
+            console.log(e);
+            enableLoader(false);
         });
 }
 
@@ -101,9 +112,9 @@ function showError(error){
 }
 
 // GET WEATHER FROM API PROVIDER
-function getWeather(latitude, longitude){
+async function getWeather(latitude, longitude){
     let api = `https://api.weatherbit.io/v2.0/current?lat=${latitude}&lon=${longitude}&key=${key}`;
-    
+    enableLoader(true);
     fetch(api)
         .then(function(response){
             let data = response.json();
@@ -128,6 +139,7 @@ function getWeather(latitude, longitude){
 
 // DISPLAY WEATHER TO UI
 function displayWeather(){
+    enableLoader(false);
     iconElement.innerHTML = `<img src="https://www.weatherbit.io/static/img/icons/${weather.iconId}.png"/>`;
     tempElement.innerHTML = `${weather.temperature.value}°<span>C</span>`;
     descElement.innerHTML = weather.description;

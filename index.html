@@ -1,154 +1,153 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <!-- Required meta tags always come first -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-      <title>Weather Scraper - lavan</title>
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
-    <link rel="stylesheet" href="style2.css">
-  </head>
-  <body>
+<head>
+  <!-- Required meta tags always come first -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-    <div class="notification"> </div>
-    <div class="container">
-      <div class="row">
-            <div class="col-sm-3"></div>
+  <title>Weather Scraper - lavan</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+    integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+  <link rel="stylesheet" href="style2.css">
+</head>
 
-            <div class="col-sm-6">
-              <div class="card"  id="c1">
-                <div class="card-body">
-                <h2>Lavan's Weather App.</h2>
-                  <div class="alert alert-info" role="alert">
-                    powered by WeatherBit.Io
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-sm-3"></div>
-      </div>
-    </div>
-
-    <br>
-
-    <div class="container">
+<body>
+  <div class="container">
     <div class="row">
+      <div class="col-sm-3"></div>
       <div class="col-sm-6">
-
-      <div class="card">
+        <div class="notification" role="alert"></div>
+        <div class="card" id="c1">
           <div class="card-body">
-
-          <br>
-
-
-          <div class="row container-fluid" id="ct1">
-            <div class="col-7"><h4>Get my Location</h4></div>
-            <div class="col-5"><button type="button" class="btn btn-sm btn-success" onclick="geos();">Get</button></div>
-          </div>
-          <br>
-          <hr />
-          <br>
-
-                <fieldset class="form-group">
-                  <label for="city"><p>Enter the name of a city.</p></label>
-                  <br>
-                  <input type="text" class="form-control" name="city" id="search-text" onKeyDown="if(event.keyCode == 13) getSearchText();" placeholder="Eg. London, Tokyo" value = "">
-                </fieldset>
-                <br>
-                
-                <button type="button" class="btn btn-primary" onclick="event.preventDefault(); getSearchText();">Submit</button>
-                <br>
-                <br>
-          <hr />
-
-
-          <div class="alert alert-info" role="alert">
-            The weather data is taken from WeatherBit.Io
-          </div>
+            <h2>Lavan's Weather App.</h2>
+            <div class="alert alert-info" role="alert">
+              powered by WeatherBit.Io
+            </div>
           </div>
         </div>
-      
+      </div>
+      <div class="col-sm-3"></div>
+    </div>
+  </div>
+
+  <br>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-6" style="font-family: 'Aref Ruqaa';">
+
+        <div class="card">
+          <div class="card-body">
+            <br>
+            <button type="button" class="btn btn-success btn-block" onclick="geos();">
+              <h6><strong>Get my location weather</strong></h6>
+            </button>
+            <br><br>
+            <hr /><br><br><br>
+
+            <label for="city">
+              <h5><strong>Enter the name of a city.</strong></h5>
+            </label><br>
+            <input type="text" class="form-control" name="city" id="search-text"
+              onKeyDown="if(event.keyCode == 13) getSearchText();" placeholder="Eg. London, Tokyo" value="">
+            <br>
+            <button type="button" class="btn btn-primary btn-block" onclick="event.preventDefault(); getSearchText();">
+              <h6><strong>Submit</strong></h6>
+            </button>
+            <br><br>
+            <hr />
+            <div class="alert alert-info" role="alert">
+              <strong>The weather data is taken from WeatherBit.Io</strong>
+            </div>
+          </div>
+        </div>
       </div>
 
       <div class="col-sm-6">
-                <div class="card" id="card2">
-                  <div id="g1">
-                    <div class="title" id="current">
-                    <h5>Current Weather</h5>
-                  </div>
-                  <br><br><br>
-                  <div class="row">
-                    <div class="col-9"><div class="city1"></div>
-                    <div class="temp" id="temp"></div></div>
-                    <div class="col-3"><span class="icon"></span></div>
-                  </div>
-                  <br><br>
-                  <br>
-                  <div class="row">
-                      <div class="col-4">
-                          <div class="header">General</div>
-                          <span class="sp1"><img src="https://img.icons8.com/nolan/64/apple-weather.png"/></span>
-                          <div class="des header2"></div>
-                      </div>
-                      <div class="col-4">
-                          <div class="header">Air Quality Index</div>
-                          <span class="sp1"><img src="https://img.icons8.com/dotty/80/000000/air-quality.png" style="background-color: whitesmoke;"/></span>
-                          <div class="airq header2"> ppm</div>
-                      </div>
-                      <div class="col-4">
-                          <div class="header">Wind Speed</div>
-                          <span class="sp1"><img src="https://img.icons8.com/color/48/000000/windsock.png"/></span>
-                          <div class="winsp header2"> m/s</div>
-                      </div>
-                  </div>
-
-                  <br><br>
-
-                  <div class="row">
-                    <div class="col-4">
-                        <div class="header">Visibility</div>
-                        <span class="sp1"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRcLf0DROi0nca_uFy5k4gj0ZqE6qEE4H07RA&usqp=CAU"/></span>
-                        <div class="vis header2"></div>
-                    </div>
-                    <div class="col-4">
-                        <div class="header">Wind Direction</div>
-                        <span class="sp1"><img src="https://cdn4.iconfinder.com/data/icons/navigation-2/500/compass_navigation_arrow_direction_gps_west_east_north_south-512.png" style="background-color: whitesmoke;"/></span>
-                        <div class="wini header2"> ppm</div>
-                    </div>
-                    <div class="col-4">
-                        <div class="header">UV Index</div>
-                        <span class="sp1"><img src="https://cdn4.iconfinder.com/data/icons/weather-forecast-11/800/UV_index-512.png"/></span>
-                        <div class="uv header2"> m/s</div>
-                    </div>
-                </div>
-              </div>
-              <div id="g2">
-                  <div class="flex">
-                  <div class="loader">
-                  </div>
-                  </div>
-                  <div class="load-text">
-                  Loading...
-                  </div>
-              </div>
-                </div>
+        <div class="card" id="card2">
+          <div id="g1">
+            <div class="title" id="current">
+              <h5>Current Weather</h5>
             </div>
+            <br><br><br>
+            <div class="row">
+              <div class="col-9">
+                <div class="city1"></div>
+                <div class="temp" id="temp"></div>
+              </div>
+              <div class="col-3"><span class="icon"></span></div>
+            </div>
+            <br><br><br>
+            <div class="row">
+              <div class="col-4">
+                <div class="header">General</div>
+                <span class="sp1"><img src="https://img.icons8.com/nolan/64/apple-weather.png" /></span>
+                <div class="des header2"></div>
+              </div>
+              <div class="col-4">
+                <div class="header">Air Quality Index</div>
+                <span class="sp1"><img src="https://img.icons8.com/dotty/80/000000/air-quality.png"
+                    style="background-color: whitesmoke;" /></span>
+                <div class="airq header2"> ppm</div>
+              </div>
+              <div class="col-4">
+                <div class="header">Wind Speed</div>
+                <span class="sp1"><img src="https://img.icons8.com/color/48/000000/windsock.png" /></span>
+                <div class="winsp header2"> m/s</div>
+              </div>
+            </div>
+
+            <br><br>
+
+            <div class="row">
+              <div class="col-4">
+                <div class="header">Visibility</div>
+                <span class="sp1"><img
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRcLf0DROi0nca_uFy5k4gj0ZqE6qEE4H07RA&usqp=CAU" /></span>
+                <div class="vis header2"></div>
+              </div>
+              <div class="col-4">
+                <div class="header">Wind Direction</div>
+                <span class="sp1"><img
+                    src="https://cdn4.iconfinder.com/data/icons/navigation-2/500/compass_navigation_arrow_direction_gps_west_east_north_south-512.png"
+                    style="background-color: whitesmoke;" /></span>
+                <div class="wini header2"> ppm</div>
+              </div>
+              <div class="col-4">
+                <div class="header">UV Index</div>
+                <span class="sp1"><img
+                    src="https://cdn4.iconfinder.com/data/icons/weather-forecast-11/800/UV_index-512.png" /></span>
+                <div class="uv header2"> m/s</div>
+              </div>
             </div>
           </div>
+          <div id="g2">
+            <div class="flex">
+              <div class="loader">
+              </div>
+            </div>
+            <div class="load-text">
+              Loading...
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+    integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js"
+    integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s"
+    crossorigin="anonymous"></script>
 
-            <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
-<script src="log1.js"></script>
-  
-  
-  </body>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="log1.js"></script>
+</body>
 </html>

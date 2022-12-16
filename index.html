@@ -47,24 +47,22 @@
 
           <div class="row container-fluid" id="ct1">
             <div class="col-7"><h4>Get my Location</h4></div>
-            <div class="col-5"><button type="button" class="btn btn-sm btn-success" onclick="geo();">Get</button></div>
+            <div class="col-5"><button type="button" class="btn btn-sm btn-success" onclick="geos();">Get</button></div>
           </div>
           <br>
           <hr />
           <br>
 
-          <form class="c1t">
                 <fieldset class="form-group">
                   <label for="city"><p>Enter the name of a city.</p></label>
                   <br>
-                  <input type="text" class="form-control" name="city" id="tex" placeholder="Eg. London, Tokyo" value = "">
+                  <input type="text" class="form-control" name="city" id="search-text" onKeyDown="if(event.keyCode == 13) getSearchText();" placeholder="Eg. London, Tokyo" value = "">
                 </fieldset>
                 <br>
                 
-                <button type="button" class="btn btn-primary" onclick="b1();">Submit</button>
+                <button type="button" class="btn btn-primary" onclick="event.preventDefault(); getSearchText();">Submit</button>
                 <br>
                 <br>
-          </form>
           <hr />
 
 

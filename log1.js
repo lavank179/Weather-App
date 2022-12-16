@@ -1,3 +1,4 @@
+geos();
 const iconElement = document.querySelector(".icon");
 const tempElement = document.querySelector(".temp");
 const descElement = document.querySelector(".des");
@@ -9,37 +10,35 @@ const winddirElement = document.querySelector(".wini");
 const uvElement = document.querySelector(".uv");
 const notificationElement = document.querySelector(".notification");
 
-// App data
 const weather = {};
 
 weather.temperature = {
     unit : "celsius"
 }
 
-// APP CONSTS AND VARS
 const KELVIN = 273;
-// API KEY
 const key = "510b2eea4a2a4069b39e619d9f932f25";
 
-var l1 = "";
+function geos(){ // CHECK IF BROWSER SUPPORTS GEOLOCATION
+if('geolocation' in navigator){
+    navigator.geolocation.getCurrentPosition(setPosition, showError);
+}else{
+    notificationElement.style.display = "block";
+    notificationElement.innerHTML = "<p>Browser doesn't Support Geolocation</p>";
+}
+}
 
+function setPosition(position){ // SET USER'S POSITION
+    getWeatherDetails([position.coords.latitude, position.coords.longitude], "geo-location");
+}
 
-geos();
-
-
-function geo(){
-    geos();
+function showError(error){ // SHOW ERROR WHEN THERE IS AN ISSUE WITH GEOLOCATION SERVICE
+    notificationElement.style.display = "block";
+    notificationElement.innerHTML = `<p> ${error.message} </p>`;
 }
 
 
-function b1(l1){
-    l1 = document.getElementById("tex").value;
-    getsearch(l1);
-}
-
-function getsearch(l1){
-    getWeather1(l1);
-}
+function getSearchText() { getWeatherDetails([document.getElementById("search-text").value], "search-text") };
 
 function enableLoader(value) {
     if(value) {
@@ -51,8 +50,8 @@ function enableLoader(value) {
     }
 }
 
-async function getWeather1(searchtext){
-    let api = await `https://api.weatherbit.io/v2.0/current?city=${searchtext}&key=${key}`;
+async function getWeatherDetails(searchtext, searchType){
+    let api = searchType === "search-text" ? `https://api.weatherbit.io/v2.0/current?city=${searchtext[0]}&key=${key}` : `https://api.weatherbit.io/v2.0/current?lat=${searchtext[0]}&lon=${searchtext[1]}&key=${key}`;
     enableLoader(true);
     fetch(api)
         .then(function(response){
@@ -77,63 +76,6 @@ async function getWeather1(searchtext){
         .catch((e) => {
             console.log(e);
             enableLoader(false);
-        });
-}
-
-function geos(){
-    // CHECK IF BROWSER SUPPORTS GEOLOCATION
-if('geolocation' in navigator){
-    navigator.geolocation.getCurrentPosition(setPosition, showError);
-}else{
-    notificationElement.style.display = "block";
-    notificationElement.innerHTML = "<p>Browser doesn't Support Geolocation</p>";
-}
-}
-
-
-
-
-
-
-
-// SET USER'S POSITION
-
-function setPosition(position){
-    let latitude = position.coords.latitude;
-    let longitude = position.coords.longitude;
-    
-    getWeather(latitude, longitude);
-}
-
-// SHOW ERROR WHEN THERE IS AN ISSUE WITH GEOLOCATION SERVICE
-function showError(error){
-    notificationElement.style.display = "block";
-    notificationElement.innerHTML = `<p> ${error.message} </p>`;
-}
-
-// GET WEATHER FROM API PROVIDER
-async function getWeather(latitude, longitude){
-    let api = `https://api.weatherbit.io/v2.0/current?lat=${latitude}&lon=${longitude}&key=${key}`;
-    enableLoader(true);
-    fetch(api)
-        .then(function(response){
-            let data = response.json();
-            return data;
-        })
-        .then(function(data){
-            weather.temperature.value = data.data[0].temp;
-            weather.description = data.data[0].weather.description;
-            weather.iconId = data.data[0].weather.icon;
-            weather.city = data.data[0].city_name;
-            weather.country = data.data[0].country_code;
-            weather.aq = data.data[0].aqi;
-            weather.winsp = data.data[0].wind_spd;
-            weather.vis = data.data[0].vis;
-            weather.wini = data.data[0].wind_cdir_full;
-            weather.uv = data.data[0].uv;
-        })
-        .then(function(){
-            displayWeather();
         });
 }
 

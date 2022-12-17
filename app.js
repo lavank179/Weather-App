@@ -17,8 +17,8 @@ weather.temperature = {
 };
 
 const KELVIN = 273;
-console.log(process.env.NODE_ENV);
-const key = process.env.NODE_ENV;
+console.log(process.env.api_key);
+const key = process.env.api_key;
 
 function geos() {
   // CHECK IF BROWSER SUPPORTS GEOLOCATION

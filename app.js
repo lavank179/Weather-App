@@ -17,7 +17,8 @@ weather.temperature = {
 };
 
 const KELVIN = 273;
-const key = process.env.api_key || "5b6faf8bdd0a49499b473dcfb915d8a9";
+console.log(process.env.api_key);
+const key = process.env.api_key;
 
 function geos() {
   // CHECK IF BROWSER SUPPORTS GEOLOCATION

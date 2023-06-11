@@ -64,13 +64,38 @@ h2 {
   color: #e6e6e6;
 }
 
-#card2 {
-  background-color: #323544;
-  width: 476px;
-  height: 570px;
-  display: flex;
-  /* align-items: center; */
-  justify-content: center;
+@media (min-width: 350px) and (max-width: 720px) {
+  #card2 {
+    background-color: #323544;
+    width: 330px;
+    height: 750px;
+    display: flex;
+    /* align-items: center; */
+    justify-content: center;
+  }
+
+  .sp1 img {
+    width: 30px;
+    height: 35px;
+    border-radius: 50%;
+  }
+}
+
+@media (min-width: 721px) and (max-width: 5000px) {
+  #card2 {
+    background-color: #323544;
+    width: 476px;
+    height: 570px;
+    display: flex;
+    /* align-items: center; */
+    justify-content: center;
+  }
+
+  .sp1 img {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+  }
 }
 
 .title {
@@ -98,11 +123,6 @@ h2 {
   font-family: "Aref Ruqaa";
   color: whitesmoke;
   font-size: 1.2rem;
-}
-.sp1 img {
-  width: 45px;
-  height: 45px;
-  border-radius: 50%;
 }
 
 .flex {
@@ -148,4 +168,15 @@ h2 {
   text-align: center;
   font: 14pt "Helvetica Neue", Helvetica, Arial, sans-serif;
   color: whitesmoke;
+}
+
+.loader2 {
+  width: 50pt;
+  height: 50pt;
+  border-radius: 100%;
+  border: red 4pt solid;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: transparent;
+  animation: loading 1s infinite;
 }
